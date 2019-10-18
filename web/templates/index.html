@@ -31,7 +31,7 @@
     <div class="col s12 m3">
       <div class="card">
         <div class="card-image">
-          <img src="{{ voit.photo }}">
+          <img src="/public/images/{{ voit.photo }}">
           <span class="card-title">{{ voit.marque }}</span>
         </div>
         <div class="card-content">
@@ -47,13 +47,25 @@
   </div>
 
   <div class="row">
-    <form class="col s12" method="POST" action="/form">
+    <form class="col s12" method="POST" action="/form" enctype="multipart/form-data">
       <div class="row">
         <div class="input-field col s6">
           <input name="marque" placeholder="Entrez une marque de voiture ..." id="first_name" type="text" class="validate">
           <label for="first_name">Marque</label>
         </div>
       </div>
+      <div class="row">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input name="photo" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+      <input type="submit" class="btn">
     </form>
   </div>
 
