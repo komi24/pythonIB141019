@@ -17,6 +17,15 @@ def home():
     liste_voitures = Voiture.query.all()
     return render_template("index.html", liste=liste_voitures)
 
+@app.route("/delete/<id>")
+def delete(id):
+  # Récupérer la voiture dont l'id est "id"
+  #Voiture.query.filter_by(id=id).delete()
+  v = Voiture.query.get(id)
+  db.session.delete(v)
+  db.session.commit()
+  return redirect("/")
+
 @app.route("/form", methods=["POST"])
 def form():
     photo = request.files["photo"]
